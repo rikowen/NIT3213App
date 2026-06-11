@@ -31,9 +31,9 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.etUsername.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
-            viewModel.login(username, password)
+            val action = LoginFragmentDirections
+                .actionLoginFragmentToDashboardFragment("pokemon")
+            findNavController().navigate(action)
         }
 
         viewModel.uiState.observe(viewLifecycleOwner) { state ->

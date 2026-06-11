@@ -51,6 +51,8 @@ class DashboardFragment : Fragment() {
                 }
                 is DashboardUiState.Error -> {
                     binding.progressBar.visibility = View.GONE
+                    binding.tvError.visibility = View.VISIBLE
+                    binding.tvError.text = state.message
                     Toast.makeText(requireContext(), state.message, Toast.LENGTH_LONG).show()
                 }
             }
